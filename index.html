@@ -40,24 +40,21 @@
         </div>
     </div>
     <!--Counter-->
-    <div  layout="row" layout-align="end center" >
-        <span >
+    <div layout="row" layout-align="end center">
+        <span>
             {{Ctrl.count || 0}} of {{Ctrl.itemsArray.length}}
             [<a href="" ng-click="Ctrl.DeleteSelectedItems();">Archive</a>]
         </span>
         <span flex-offset-gt-sm="20"></span>
     </div>
+    <!--List items-->
     <ul flex-offset-gt-sm="20">
-       <div ng-repeat="i in Ctrl.itemsArray">
-           <md-checkbox ng-model="i.checked" ng-change="Ctrl.RemainingItemInList();">
-               {{i.item}}
-           </md-checkbox>
-       </div>
+        <div ng-repeat="i in Ctrl.itemsArray">
+            <md-checkbox ng-model="i.checked" ng-change="Ctrl.RemainingItemInList();">
+                {{i.item}}
+            </md-checkbox>
+        </div>
     </ul>
-
-
 </div>
-
-
 </body>
 </html>
