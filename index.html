@@ -42,7 +42,7 @@
     <!--Counter-->
     <div  layout="row" layout-align="end center" >
         <span >
-            {{count || 0}} of {{Ctrl.itemsArray.length}}
+            {{Ctrl.count || 0}} of {{Ctrl.itemsArray.length}}
             [<a href="" ng-click="Ctrl.DeleteSelectedItems();">Archive</a>]
         </span>
         <span flex-offset-gt-sm="20"></span>
