@@ -3,8 +3,61 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Material Todo</title>
+
+    <link rel="stylesheet" href="vendors/angular-material-icons/angular-material-icons.css"/>
+    <link rel="stylesheet" href="vendors/angular-material/angular-material.css"/>
+
+    <script src="vendors/angular/angular.js"></script>
+    <script src="vendors/angular-material/angular-material.js"></script>
+    <script src="vendors/angular-animate/angular-animate.js"></script>
+    <script src="vendors/angular-aria/angular-aria.js"></script>
+    <script src="vendors/angular-messages/angular-messages.js"></script>
+    <script src="vendors/angular-material-icons/angular-material-icons.js"></script>
+    <script src="app.js"></script>
+
 </head>
-<body>
+<body ng-app="mainApp">
+
+<!--Page div-->
+<div layout="column" ng-controller="appCtrl as Ctrl">
+    <!--Header div-->
+    <div layout="row">
+        <md-toolbar layout-align="center start" class="md-toolbar-tools">
+            <h1 class="md-display-1">to do list</h1>
+        </md-toolbar>
+    </div>
+    <!--Input and button-->
+    <div layout="row" layout-align="center center" layout-margin>
+        <div layout="row" layout-align="center start" layout-padding flex-xs flex-sm
+             flex-gt-sm="60">
+            <md-input-container flex>
+                <label>Add todo items</label>
+                <input type="text" ng-model="Ctrl.todoitem"/>
+            </md-input-container>
+            <md-button class="md-fab" ng-click="Ctrl.AddItemTodoList();" aria-label="add item">
+                <ng-md-icon icon="add"></ng-md-icon>
+            </md-button>
+        </div>
+    </div>
+    <!--Counter-->
+    <div  layout="row" layout-align="end center" >
+        <span >
+            {{count || 0}} of {{Ctrl.itemsArray.length}}
+            [<a href="" ng-click="Ctrl.DeleteSelectedItems();">Archive</a>]
+        </span>
+        <span flex-offset-gt-sm="20"></span>
+    </div>
+    <ul flex-offset-gt-sm="20">
+       <div ng-repeat="i in Ctrl.itemsArray">
+           <md-checkbox ng-model="i.checked" ng-change="RemainingItemInList();">
+               {{i.item}}
+           </md-checkbox>
+       </div>
+    </ul>
+
+
+</div>
+
 
 </body>
 </html>
